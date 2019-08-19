@@ -69,7 +69,7 @@ namespace Microsoft.Identity.Web.Client.TokenCacheProviders
                 this.CacheOptions = option;
             }
 
-            if (azureAdOptionsAccessor.CurrentValue == null && string.IsNullOrWhiteSpace(azureAdOptionsAccessor.CurrentValue.ClientId))
+            if (azureAdOptionsAccessor.CurrentValue == null || string.IsNullOrWhiteSpace(azureAdOptionsAccessor.CurrentValue.ClientId))
             {
                 throw new ArgumentNullException(nameof(AzureADOptions), $"The app token cache needs {nameof(AzureADOptions)}, populated with clientId to initialize.");
             }
